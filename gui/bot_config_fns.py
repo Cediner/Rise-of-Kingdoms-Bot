@@ -119,7 +119,7 @@ gather_resource_checkbox = checkbox_fn_creator('gatherResource', 'Gather resourc
 resource_no_secondery_commander = checkbox_fn_creator('gatherResourceNoSecondaryCommander', 'Not secondary commader')
 use_gathering_boosts = checkbox_fn_creator('useGatheringBoosts', 'Use gathering boosts')
 hold_one_query_space_checkbox = checkbox_fn_creator('holdOneQuerySpace', 'Hold space for attack barbarians')
-random_troops_march = checkbox_fn_creator('randomTroopsMarch', 'Random march')
+random_troops_march = checkbox_fn_creator('randomTroops', 'Random march')
 
 enable_scout_checkbox = checkbox_fn_creator('enableScout', 'Enable explore')
 enable_Investigation_checkbox = checkbox_fn_creator('enableInvestigation', 'Investigate Cave, Village')
