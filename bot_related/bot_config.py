@@ -95,6 +95,7 @@ class BotConfig:
         self.gatherResourceRatioStone = config.get('gatherResourceRatioStone', 1)
         self.gatherResourceRatioGold = config.get('gatherResourceRatioGold', 1)
         self.holdOneQuerySpace = config.get('holdOneQuerySpace', False)
+        self.randomTroops = config.get('randomTroopsMarch', False)
 
         # Scout
         self.enableScout = config.get('enableScout', False)

@@ -132,6 +132,11 @@ class GatherResource(Task):
                 if self.bot.config.gatherResourceNoSecondaryCommander:
                     self.set_text(insert="Remove secondary commander")
                     self.tap(473, 501, 0.5)
+
+                if not self.bot.config.randomTroops:
+                    # select saves
+                    self.select_save_army()
+
                 match_button_pos = self.gui.check_any(ImagePathAndProps.TROOPS_MATCH_BUTTON_IMAGE_PATH.value)[2]
                 self.set_text(insert="March")
                 self.tap(match_button_pos[0], match_button_pos[1], 2)
@@ -175,3 +180,46 @@ class GatherResource(Task):
         if curr_q is None:
             return self.max_query_space
         return max_q - curr_q
+
+
+    def select_save_army(self):
+        for t in {1, 2, 3, 4, 5}:
+            if self.select_save_blue(t):
+                return
+            else:
+                super().set_text(insert="Save {0} not found".format(t))
+        raise RuntimeError('Save not found')
+
+    def select_save_blue(self, n):
+        image = None
+        if n is 1:
+            image = ImagePathAndProps.UNSELECT_BLUE_ONE_SAVE_BUTTON_IMAGE_PATH
+        elif n is 2:
+            image = ImagePathAndProps.UNSELECT_BLUE_TWO_SAVE_BUTTON_IMAGE_PATH
+        elif n is 3:
+            image = ImagePathAndProps.UNSELECT_BLUE_THREE_SAVE_BUTTON_IMAGE_PATH
+        elif n is 4:
+            image = ImagePathAndProps.UNSELECT_BLUE_FOUR_SAVE_BUTTON_IMAGE_PATH
+        elif n is 5:
+            image = ImagePathAndProps.UNSELECT_BLUE_FIVE_SAVE_BUTTON_IMAGE_PATH
+        if image is not None:
+            return self.select_save_blue_image(image)
+        return False
+
+    def select_save_blue_image(self, image):
+        has_save_btn, _, save_btn_pos = self.gui.check_any(image.value)
+
+        if has_save_btn:
+            return self.tap_on_save_btn(save_btn_pos, image)
+        else:
+            super().set_text(insert='Save not found')
+            return False
+
+    def tap_on_save_btn(self, pos, image):
+        _x, _y = pos
+        super().tap(_x, _y, 1)
+        is_save_unselect, _, _ = self.gui.check_any(image.value)
+        if is_save_unselect:
+            super().set_text(insert='Commander not in city, stop current task')
+            return False
+        return True

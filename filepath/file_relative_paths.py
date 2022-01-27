@@ -111,6 +111,22 @@ class ImagePathAndProps(Enum):
                                                 (1280, 720), (0, 0, 0, 0), 0.95, 25, UNSELECT_BLUE_ONE]
     SELECTED_BLUE_ONE_SAVE_BUTTON_IMAGE_PATH = ['resource\\selected_save_blue_one.png',
                                                 (1280, 720), (0, 0, 0, 0), 0.95, 25, SELECTED_BLUE_ONE]
+    UNSELECT_BLUE_TWO_SAVE_BUTTON_IMAGE_PATH = ['resource\\unselect_save_blue_two.png',
+                                                (1280, 720), (0, 0, 0, 0), 0.95, 25, UNSELECT_BLUE_TWO]
+    SELECTED_BLUE_TWO_SAVE_BUTTON_IMAGE_PATH = ['resource\\selected_save_blue_two.png',
+                                                (1280, 720), (0, 0, 0, 0), 0.95, 25, SELECTED_BLUE_TWO]
+    UNSELECT_BLUE_THREE_SAVE_BUTTON_IMAGE_PATH = ['resource\\unselect_save_blue_three.png',
+                                                (1280, 720), (0, 0, 0, 0), 0.95, 25, UNSELECT_BLUE_THREE]
+    SELECTED_BLUE_THREE_SAVE_BUTTON_IMAGE_PATH = ['resource\\selected_save_blue_three.png',
+                                                (1280, 720), (0, 0, 0, 0), 0.95, 25, SELECTED_BLUE_THREE]
+    UNSELECT_BLUE_FOUR_SAVE_BUTTON_IMAGE_PATH = ['resource\\unselect_save_blue_four.png',
+                                                (1280, 720), (0, 0, 0, 0), 0.95, 25, UNSELECT_BLUE_FOUR]
+    SELECTED_BLUE_FOUR_SAVE_BUTTON_IMAGE_PATH = ['resource\\selected_save_blue_four.png',
+                                                (1280, 720), (0, 0, 0, 0), 0.95, 25, SELECTED_BLUE_FOUR]
+    UNSELECT_BLUE_FIVE_SAVE_BUTTON_IMAGE_PATH = ['resource\\unselect_save_blue_five.png',
+                                                (1280, 720), (0, 0, 0, 0), 0.95, 25, UNSELECT_BLUE_FIVE]
+    SELECTED_BLUE_FIVE_SAVE_BUTTON_IMAGE_PATH = ['resource\\selected_save_blue_five.png',
+                                                (1280, 720), (0, 0, 0, 0), 0.95, 25, SELECTED_BLUE_FIVE]
     SAVE_SWITCH_BUTTON_IMAGE_PATH = ['resource\\switch_save.png',
                                      (1280, 720), (0, 0, 0, 0), 0.90, 25, SAVE_SWITCH]
     VICTORY_MAIL_IMAGE_PATH = ['resource\\victory_mail.png',
