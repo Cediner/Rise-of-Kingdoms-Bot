@@ -167,7 +167,6 @@ class Task:
             box = (480, 310, 799, 719) #400, 0, 880, 720
             ok = [682, 674] #780, 680
             ok_size = [111, 38]
-            click_offset = 50 / 2
             img = self.gui.get_curr_device_screen_img()
             img = img.crop(box)
             if config.global_config.method == HAO_I:
@@ -180,7 +179,7 @@ class Task:
                 return None
 
             for pos in pos_list:
-                self.tap(box[0] + pos[0] + click_offset, box[1] + pos[1] + click_offset, 1)
+                self.tap(box[0] + pos[0], box[1] + pos[1], 1)
             self.tap(ok[0] + ok_size[0] / 2, ok[1] + ok_size[1] / 2, 5)
 
         except Exception as e:
