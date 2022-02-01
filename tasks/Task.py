@@ -269,6 +269,7 @@ class Task:
 
     # long_press_duration is in milliseconds
     def tap(self, x, y, sleep_time=0.1, long_press_duration=-1):
+        self.set_text(insert="Position tap ({}, {})".format(x, y))
         cmd = None
         if long_press_duration > -1:
             cmd = 'input swipe {} {} {} {} {}'.format(x, y, x, y, long_press_duration)
