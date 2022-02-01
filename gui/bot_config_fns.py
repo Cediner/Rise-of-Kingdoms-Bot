@@ -179,8 +179,8 @@ def resource_ratio(app, parent):
 
 bot_config_title_fns = [
     [restart_checkbox, [restart_do_round]],
-    [break_call_commander],
-    [break_heal_troops],
+    [break_call_commander, []],
+    [break_heal_troops, []],
     [break_checkbox, [break_do_round, terminate_checkbox, time_drop_down]],
     [mystery_merchant_checkbox, []],
     [open_free_chest_in_tavern, []],
