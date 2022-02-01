@@ -122,6 +122,7 @@ class GatherResource(Task):
                 last_resource_pos.append(new_resource_pos)
                 should_decreasing_lv = False
                 gather_button_pos = self.gui.check_any(ImagePathAndProps.RESOURCE_GATHER_BUTTON_IMAGE_PATH.value)[2]
+                self.set_text(insert="Position [{}]".format(gather_button_pos))
                 self.tap(gather_button_pos[0], gather_button_pos[1], 2)
                 pos = self.gui.check_any(ImagePathAndProps.NEW_TROOPS_BUTTON_IMAGE_PATH.value)[2]
                 if pos is None:
