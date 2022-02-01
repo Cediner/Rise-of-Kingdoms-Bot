@@ -21,6 +21,7 @@ class BotConfig:
         #Custom break
         self.breakCallCommander = config.get('breakCallCommander', True)
         self.breakHealTroops = config.get('breakHealTroops', True)
+        self.breakBackToHome = config.get('breakBackToHome', True)
 
         # Break
         self.enableBreak = config.get('enableBreak', True)

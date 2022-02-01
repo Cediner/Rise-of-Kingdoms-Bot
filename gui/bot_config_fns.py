@@ -29,6 +29,7 @@ terminate_checkbox = checkbox_fn_creator('terminate', 'Terminate when break')
 break_checkbox = checkbox_fn_creator('enableBreak', 'Take break at every end of round')
 break_call_commander = checkbox_fn_creator('breakCallCommander', 'Call commander at end of round')
 break_heal_troops = checkbox_fn_creator('breakHealTroops', 'Heal troops at end of round')
+break_back_home = checkbox_fn_creator('breakBackToHome', 'Back to home at end of round')
 
 # Mystery Merchant
 mystery_merchant_checkbox = checkbox_fn_creator('enableMysteryMerchant', 'Use resource buy item in Mystery Merchant')
@@ -181,6 +182,7 @@ bot_config_title_fns = [
     [restart_checkbox, [restart_do_round]],
     [break_call_commander, []],
     [break_heal_troops, []],
+    [break_back_home, []],
     [break_checkbox, [break_do_round, terminate_checkbox, time_drop_down]],
     [mystery_merchant_checkbox, []],
     [open_free_chest_in_tavern, []],

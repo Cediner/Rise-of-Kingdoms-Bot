@@ -19,8 +19,9 @@ class Break(Task):
             if self.bot.config.breakHealTroops:
                 super().heal_troops()
             super().set_text(insert='0/{} seconds'.format(self.bot.config.breakTime))
-            super().back_to_home_gui()
-            super().home_gui_full_view()
+            if self.bot.config.breakBackToHome:
+                super().back_to_home_gui()
+                super().home_gui_full_view()
 
             # stop game if config set true
             if self.bot.config.terminate:
