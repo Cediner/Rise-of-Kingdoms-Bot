@@ -27,6 +27,8 @@ restart_do_round = entry_int_fn_creator('stopDoRound', 'Execute at every', 'roun
 break_do_round = entry_int_fn_creator('breakDoRound', 'Execute at every', 'round')
 terminate_checkbox = checkbox_fn_creator('terminate', 'Terminate when break')
 break_checkbox = checkbox_fn_creator('enableBreak', 'Take break at every end of round')
+break_call_commander = checkbox_fn_creator('breakCallCommander', 'Call commander at end of round')
+break_heal_troops = checkbox_fn_creator('breakHealTroops', 'Heal troops at end of round')
 
 # Mystery Merchant
 mystery_merchant_checkbox = checkbox_fn_creator('enableMysteryMerchant', 'Use resource buy item in Mystery Merchant')
@@ -176,7 +178,9 @@ def resource_ratio(app, parent):
 
 
 bot_config_title_fns = [
-    # [restart_checkbox, [restart_do_round]],
+    [restart_checkbox, [restart_do_round]],
+    [break_call_commander],
+    [break_heal_troops],
     [break_checkbox, [break_do_round, terminate_checkbox, time_drop_down]],
     [mystery_merchant_checkbox, []],
     [open_free_chest_in_tavern, []],

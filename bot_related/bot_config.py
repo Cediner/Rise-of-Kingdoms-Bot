@@ -18,6 +18,10 @@ class BotConfig:
 
         self.action_wait_time = config.get('action_wait_time', 1)
 
+        #Custom break
+        self.breakCallCommander = config.get('breakCallCommander', True)
+        self.breakHealTroops = config.get('breakHealTroops', True)
+
         # Break
         self.enableBreak = config.get('enableBreak', True)
         self.breakTime = config.get('breakTime', 60 * 3)

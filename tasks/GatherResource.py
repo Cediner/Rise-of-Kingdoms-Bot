@@ -192,15 +192,15 @@ class GatherResource(Task):
 
     def select_save_blue(self, n):
         image = None
-        if n is 1:
+        if n == 1:
             image = ImagePathAndProps.UNSELECT_BLUE_ONE_SAVE_BUTTON_IMAGE_PATH
-        elif n is 2:
+        elif n == 2:
             image = ImagePathAndProps.UNSELECT_BLUE_TWO_SAVE_BUTTON_IMAGE_PATH
-        elif n is 3:
+        elif n == 3:
             image = ImagePathAndProps.UNSELECT_BLUE_THREE_SAVE_BUTTON_IMAGE_PATH
-        elif n is 4:
+        elif n == 4:
             image = ImagePathAndProps.UNSELECT_BLUE_FOUR_SAVE_BUTTON_IMAGE_PATH
-        elif n is 5:
+        elif n == 5:
             image = ImagePathAndProps.UNSELECT_BLUE_FIVE_SAVE_BUTTON_IMAGE_PATH
         if image is not None:
             return self.select_save_blue_image(image)

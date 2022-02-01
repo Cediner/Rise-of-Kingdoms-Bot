@@ -14,8 +14,10 @@ class Break(Task):
         try:
             super().set_text(title='Break', remove=True)
             super().set_text(insert='Init View')
-            super().call_idle_back()
-            super().heal_troops()
+            if self.bot.config.breakCallCommander:
+                super().call_idle_back()
+            if self.bot.config.breakHealTroops:
+                super().heal_troops()
             super().set_text(insert='0/{} seconds'.format(self.bot.config.breakTime))
             super().back_to_home_gui()
             super().home_gui_full_view()
@@ -36,8 +38,10 @@ class Break(Task):
 
     def do_no_wait(self, next_task = TaskName.COLLECTING):
         try:
-            super().call_idle_back()
-            super().heal_troops()
+            if self.bot.config.breakCallCommander:
+                super().call_idle_back()
+            if self.bot.config.breakHealTroops:
+                super().heal_troops()
             return next_task
         except Exception as e:
             traceback.print_exc()
