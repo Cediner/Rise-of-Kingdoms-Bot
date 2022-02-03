@@ -19,17 +19,27 @@ class Collecting(Task):
             super().menu_should_open(False)
 
             x_e, y_e = 105, 125
-            for name in [
-                BuildingNames.BARRACKS.value,
-                BuildingNames.ARCHERY_RANGE.value,
-                BuildingNames.STABLE.value,
-                BuildingNames.SIEGE_WORKSHOP.value,
-                BuildingNames.FARM.value,
-                BuildingNames.LUMBER_MILL.value,
-                BuildingNames.QUARRY.value,
-                BuildingNames.GOLDMINE.value,
-                BuildingNames.ALLIANCE_CENTER.value
-            ]:
+
+            troop_array = [BuildingNames.BARRACKS.value,
+                           BuildingNames.ARCHERY_RANGE.value,
+                           BuildingNames.STABLE.value,
+                           BuildingNames.SIEGE_WORKSHOP.value]
+            resource_array = [BuildingNames.FARM.value,
+                              BuildingNames.LUMBER_MILL.value,
+                              BuildingNames.QUARRY.value,
+                              BuildingNames.GOLDMINE.value]
+            alliance_array = [BuildingNames.ALLIANCE_CENTER.value]
+
+            full_array = []
+
+            if self.bot.config.enableCollectingTroops is True:
+                full_array.append(troop_array)
+            if self.bot.config.enableCollectingResource is True:
+                full_array.append(resource_array)
+            if self.bot.config.enableCollectingHelp is True:
+                full_array.append(alliance_array)
+
+            for name in full_array:
                 x, y = self.bot.building_pos[name]
                 self.set_text(insert='tap {} at position ({},{})'.format(name, x, y))
                 self.tap(x, y)

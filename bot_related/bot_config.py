@@ -36,6 +36,9 @@ class BotConfig:
 
         # Collecting
         self.enableCollecting = config.get('enableCollecting', True)
+        self.enableCollectingResource = config.get('enableCollectingResource', True)
+        self.enableCollectingTroops = config.get('enableCollectingTroops', True)
+        self.enableCollectingHelp = config.get('enableCollectingHelp', True)
 
         # Producing
         self.enableMaterialProduce = config.get('enableMaterialProduce', True)

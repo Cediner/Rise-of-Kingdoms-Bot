@@ -66,6 +66,9 @@ def time_drop_down(app, parent):
 
 # In city
 collecting_checkbox = checkbox_fn_creator('enableCollecting', 'Collecting resource, troops, and help alliance')
+collecting_resource_checkbox = checkbox_fn_creator('enableCollectingResource', 'Collecting resource')
+collecting_troops_checkbox = checkbox_fn_creator('enableCollectingTroops', 'Collecting troops')
+collecting_help_checkbox = checkbox_fn_creator('enableCollectingHelp', 'Collecting help alliance')
 
 produce_material = checkbox_fn_creator('enableMaterialProduce', 'Produce material')
 material_do_round = entry_int_fn_creator('materialDoRound', 'Execute at every', 'round')
@@ -186,7 +189,7 @@ bot_config_title_fns = [
     [break_checkbox, [break_do_round, terminate_checkbox, time_drop_down]],
     [mystery_merchant_checkbox, []],
     [open_free_chest_in_tavern, []],
-    [collecting_checkbox, []],
+    [collecting_checkbox, [collecting_resource_checkbox, collecting_troops_checkbox, collecting_help_checkbox]],
     [produce_material, [material_do_round]],
     [daily_vip_point_and_chest, [vip_do_round]],
     [claim_quest_checkbox, [quest_do_round]],
