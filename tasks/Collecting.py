@@ -33,11 +33,11 @@ class Collecting(Task):
             full_array = []
 
             if self.bot.config.enableCollectingTroops is True:
-                full_array.append(troop_array)
+                full_array = append_array(troop_array, full_array)
             if self.bot.config.enableCollectingResource is True:
-                full_array.append(resource_array)
+                full_array = append_array(resource_array, full_array)
             if self.bot.config.enableCollectingHelp is True:
-                full_array.append(alliance_array)
+                full_array = append_array(alliance_array, full_array)
 
             for name in full_array:
                 x, y = self.bot.building_pos[name]
@@ -49,3 +49,9 @@ class Collecting(Task):
             traceback.print_exc()
             return next_task
         return next_task
+
+
+def append_array(array_source, array_dest):
+    for e in array_source:
+        array_dest.append(e)
+    return array_dest
