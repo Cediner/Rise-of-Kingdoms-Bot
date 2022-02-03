@@ -5,37 +5,6 @@
 
 # Rise of Kingdom Bot
 
-### **Introduction**
-
-Rise of Kingdom Bot can do following job: claim quests/vip/gifts, collecting resource, gathering resource, donate techology, train troops and pass verification.
-
-If you have any problem, suggestions or new features,  please feel free to submit issues directly on GitHub
-
-- Link: https://github.com/Dylan-Zheng/Rise-of-Kingdoms-Bot/issues
-
-
-If you don't want to set up by yourself, there is executable version for windows
-
-- Link: https://github.com/Dylan-Zheng/Rise-of-Kingdoms-Bot/releases/
-
-
-If you like this project, give me a star or feedback , that is great help for me. **:smile:**
-
-------
-
-**Current Version v1.4.3.060721_beta (06/07/2021):**
-
-Link: https://github.com/Dylan-Zheng/Rise-of-Kingdoms-Bot/releases/tag/v1.4.3.060721_beta
-
-**Update:**
-
-- Random tasks order.
-- fix sometime stuck on pass verification.
-
-Note: Don't forget to move your **'save'**, **'config.json'** and **'devices_config.json'** to new version folder
-
-------
-
 ### Requirements
 
 - python
