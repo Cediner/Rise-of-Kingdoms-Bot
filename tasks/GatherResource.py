@@ -181,13 +181,12 @@ class GatherResource(Task):
             return self.max_query_space
         return max_q - curr_q
 
-
     def select_save_army(self):
-        for t in {1, 2, 3, 4, 5}:
+        for t in [1, 2, 3, 4, 5]:
             if self.select_save_blue(t):
                 return
             else:
-                super().set_text(insert="Save {0} not found".format(t))
+                super().set_text(insert="Save {} not found".format(t))
         raise RuntimeError('Save not found')
 
     def select_save_blue(self, n):
