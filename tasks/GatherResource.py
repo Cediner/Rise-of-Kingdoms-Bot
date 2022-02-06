@@ -111,14 +111,17 @@ class GatherResource(Task):
                 new_resource_pos = self.gui.resource_location_image_to_string()
 
                 # small fix
-                if new_resource_pos in last_resource_pos:
-                    self.tap(x, y, 0.5)
-                    self.tap(chose_icon_pos[0], chose_icon_pos[1], 0.5)
-                    self.tap(search_pos[0], search_pos[1], 1)
+                for j in range(5):
+                    if new_resource_pos in last_resource_pos:
+                        self.tap(x, y, 0.5)
+                        self.tap(chose_icon_pos[0], chose_icon_pos[1], 0.5)
+                        self.tap(search_pos[0], search_pos[1], 1)
 
-                    self.set_text(insert="Resource found")
-                    self.tap(640, 320, 0.5)
-                    new_resource_pos = self.gui.resource_location_image_to_string()
+                        self.set_text(insert="Resource found")
+                        self.tap(640, 320, 0.5)
+                        new_resource_pos = self.gui.resource_location_image_to_string()
+                    else:
+                        break
 
                 if new_resource_pos in last_resource_pos:
                     should_decreasing_lv = True
