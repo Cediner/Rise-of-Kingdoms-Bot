@@ -151,7 +151,7 @@ class GatherResource(Task):
                 self.set_text(insert="March")
                 self.tap(match_button_pos[0], match_button_pos[1], 1)
                 repeat_count = 0
-                self.swipe(300, 720, 400, 360, 0.5)
+                self.swipe(300, 720, 400, 360, 1)
 
         except Exception as e:
             traceback.print_exc()
