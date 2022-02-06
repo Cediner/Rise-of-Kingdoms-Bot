@@ -68,8 +68,8 @@ class GatherResource(Task):
 
             # tap on magnifier
             x, y = magnifier_pos
-            self.tap(x, y, 1)
-            self.tap(chose_icon_pos[0], chose_icon_pos[1], 1)
+            self.tap(x, y, 0.5)
+            self.tap(chose_icon_pos[0], chose_icon_pos[1], 0.5)
             search_pos = self.gui.check_any(ImagePathAndProps.RESOURCE_SEARCH_BUTTON_IMAGE_PATH.value)[2]
             dec_pos = self.gui.check_any(ImagePathAndProps.DECREASING_BUTTON_IMAGE_PATH.value)[2]
             inc_pos = self.gui.check_any(ImagePathAndProps.INCREASING_BUTTON_IMAGE_PATH.value)[2]
@@ -88,9 +88,8 @@ class GatherResource(Task):
                             self.set_text(insert="Match query space less or equal to 1, stop!")
                             return next_task
 
-                    x, y = magnifier_pos
                     self.tap(x, y, 1)
-                    self.tap(chose_icon_pos[0], chose_icon_pos[1], 1)
+                    self.tap(chose_icon_pos[0], chose_icon_pos[1], 0.5)
 
                 # decreasing level
                 if should_decreasing_lv:
@@ -98,7 +97,7 @@ class GatherResource(Task):
                     self.tap(dec_pos[0], dec_pos[1], 0.3)
 
                 for j in range(5):
-                    self.tap(search_pos[0], search_pos[1], 2)
+                    self.tap(search_pos[0], search_pos[1], 1)
                     is_found, _, _ = self.gui.check_any(ImagePathAndProps.RESOURCE_SEARCH_BUTTON_IMAGE_PATH.value)
                     if not is_found:
                         break
@@ -110,6 +109,17 @@ class GatherResource(Task):
 
                 # check is same pos
                 new_resource_pos = self.gui.resource_location_image_to_string()
+
+                # small fix
+                if new_resource_pos in last_resource_pos:
+                    self.tap(x, y, 0.5)
+                    self.tap(chose_icon_pos[0], chose_icon_pos[1], 0.5)
+                    self.tap(search_pos[0], search_pos[1], 1)
+
+                    self.set_text(insert="Resource found")
+                    self.tap(640, 320, 0.5)
+                    new_resource_pos = self.gui.resource_location_image_to_string()
+
                 if new_resource_pos in last_resource_pos:
                     should_decreasing_lv = True
                     repeat_count = repeat_count + 1
@@ -122,13 +132,13 @@ class GatherResource(Task):
                 last_resource_pos.append(new_resource_pos)
                 should_decreasing_lv = False
                 gather_button_pos = self.gui.check_any(ImagePathAndProps.RESOURCE_GATHER_BUTTON_IMAGE_PATH.value)[2]
-                self.tap(gather_button_pos[0], gather_button_pos[1], 2)
+                self.tap(gather_button_pos[0], gather_button_pos[1], 1)
                 pos = self.gui.check_any(ImagePathAndProps.NEW_TROOPS_BUTTON_IMAGE_PATH.value)[2]
                 if pos is None:
                     self.set_text(insert="Not more space for march")
                     return next_task
                 new_troops_button_pos = pos
-                self.tap(new_troops_button_pos[0], new_troops_button_pos[1], 2)
+                self.tap(new_troops_button_pos[0], new_troops_button_pos[1], 1)
                 if self.bot.config.gatherResourceNoSecondaryCommander:
                     self.set_text(insert="Remove secondary commander")
                     self.tap(473, 501, 0.5)
@@ -139,9 +149,9 @@ class GatherResource(Task):
 
                 match_button_pos = self.gui.check_any(ImagePathAndProps.TROOPS_MATCH_BUTTON_IMAGE_PATH.value)[2]
                 self.set_text(insert="March")
-                self.tap(match_button_pos[0], match_button_pos[1], 2)
+                self.tap(match_button_pos[0], match_button_pos[1], 1)
                 repeat_count = 0
-                self.swipe(300, 720, 400, 360, 1)
+                self.swipe(300, 720, 400, 360, 0.5)
 
         except Exception as e:
             traceback.print_exc()
